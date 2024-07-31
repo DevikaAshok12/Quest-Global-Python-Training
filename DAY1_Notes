@@ -13,10 +13,8 @@ floor() It removes/truncates the decimal part if any.
 round() If the decimal part is 0.5 or more then next integer number is returned, else the decimal part is truncated.
 ciel() Returns the next integer number if the decimal part of the number is anything other than .0
 So ciel(7.000001) is 8.
-what is data
-digital and analog? by Shafin Shajahan (Unverified)Shafin Shajahan (Unverified)2:52 PM
-digital and analog?
-What is Data ? Data is some information w... by Nithin Neelakanta Rao (Unverified)Nithin Neelakanta Rao (Unverified)3:09 PM
+
+What is Data ? Data is some information 
 What is Data ?
 Data is some information which has an implicit meaning and it is worth storing.
  

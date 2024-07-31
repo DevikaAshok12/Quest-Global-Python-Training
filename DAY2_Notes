@@ -122,3 +122,114 @@ Example: https://www.gihub.com/nithin/quest_python
   You can see a folder with your repo name
 9. When ever we do any changes to the repo (adding or deleteing or modyfying files and folder), we must click on the version_control icon in VS code (Left most corner 3rd vertical icon). Now, in the message box, add the relevant message (day2 notes and programs are added) and click on COMMIT button. Next, click on the SYNC button and then click OK when you are prompted.
 
+Program to count the number of digits in a number
+10) 145 (14
+       140
+           5
+145 // 10    Integer division (Quotient is always int)
+
+10) 145 (14.5
+       140
+            50
+            50
+145 / 10    Floating point division
+
+# Program to count the number of digits in a number
+
+input_number = int(input('Enter a number to count number of digits in it: '))
+
+count_of_digits = 0
+temp_number = input_number
+
+while temp_number != 0:
+    temp_number = temp_number // 10
+    count_of_digits += 1
+
+print(f'Number of digits in {input_number} is {count_of_digits}')
+
+inp=3475
+temp=3475
+c=0
+
+i=1
+temp=347
+c=1
+
+i=2
+temp=34
+c=2
+
+i=3
+temp=3
+c=3
+
+i=4
+temp=0
+c=4
+
+O/P: Number of digits in 3475 is 4
+
+Alternate and easy solution:
+input_number = int(input('Enter a number to count number of digits in it: '))
+
+count_of_digits = len(str(input_number))
+
+print(f'Number of digits in {input_number} is {count_of_digits}')
+------------------------------------------------------
+# Program to find sum of digits in of number
+
+input_number = int(input('Enter a number to find sum of digits in it: '))
+
+sum_of_digits = 0
+temp_number = input_number
+
+while temp_number != 0:
+    remainder_digit = temp_number % 10
+    temp_number = temp_number // 10
+    sum_of_digits += remainder_digit
+
+print(f'Sum of digits in {input_number} is {sum_of_digits}')
+
+Alternate solution:
+input_number = int(input('Enter a number to find sum of digits in it: ')) # read a number and store it as an integer
+
+numbers = [int(char) for char in str(input_number)] # convert the number into string and read character by character from the string using for loop and then convert each of the character to integer and store it in the list.
+
+print(numbers) # Print the list of numbers
+
+print(f'Sum of digits of {input_number} is {sum(numbers)}') # The sum() finds sum of the elements of the list
+------------------------------------------------------
+Program to count the number of Odd digits in a number
+
+
+------------------------------------------------------
+Program to accept number of lines of the Triangle and draw the Trianlge:
+*
+**
+***
+****
+*****
+
+number_of_lines = int(input('Enter number of lines of the Triangle: '))
+
+for i in range(1, number_of_lines+1):
+    print('*' * i)
+----------------------------------------------------------
+range() function in Python:
+
+The range function can be used in many ways:
+
+range(10)
+The start value is 0, end value is 9, increment is +1
+
+range(1, 11)
+The start value is 1, end value is 10, increment is +1
+
+range(2, 20, 3)
+The start value is 2, end value is less than 20, increment is +3
+
+range(25, 2, -2)
+The start value is 25, end value is greater than 2, increment is -2 which is nothing but, decrement of 2
+
+
+-----------------------------------------------------

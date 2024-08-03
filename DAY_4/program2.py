@@ -11,3 +11,4 @@ print(numbers[9:12])
 
 # print(numbers[12]) 
 print(numbers[:1:-2]) 
+print(numbers[::-1])     

@@ -1,0 +1,117 @@
+1.What is the alternative implementation of function overloading in Python?
+In Python, function overloading as seen in other languages like C++ or Java is not supported directly due to Python's dynamic typing. However, you can achieve similar functionality using several techniques:
+
+Default Arguments: Use default values for parameters to handle different cases within a single function.
+Variable-Length Arguments: Use *args and **kwargs to accept a variable number of positional and keyword arguments.
+     def add(*args):
+      return sum(args)
+
+    print(add(1, 2))        # Output: 3
+    print(add(1, 2, 3, 4))  # Output: 10
+2. Why there is no implicit type casting in Python ?
+
+
+Python does not perform implicit type casting to maintain clarity and avoid unexpected behavior. Here's why explicit type conversions are preferred in Python:
+
+Clarity and Readability: Implicit type casting can make code harder to understand and debug. When types are explicitly converted, the programmer's intentions are clear, which improves the readability and maintainability of the code.
+
+Avoiding Ambiguity: Implicit type casting can lead to ambiguous situations where the intended type conversion might not be obvious. This ambiguity can cause unexpected bugs and errors that are hard to trace.
+
+Dynamic Typing: Python is a dynamically typed language, meaning that the type of a variable is determined at runtime. Allowing implicit type casting in such a context could lead to unpredictable behavior and difficult-to-debug errors.
+
+Explicit is Better Than Implicit: This is one of the guiding principles in the Zen of Python (PEP 20). Explicit type conversions align with this philosophy, making the code more understandable and predictable.
+
+Error Prevention: Implicit type casting can sometimes lead to subtle bugs, especially when dealing with numerical operations. For example, implicitly casting between floating-point numbers and integers might lead to precision loss or unexpected results.
+
+3.Why there is no ++ and -- (increment/decrement) operators in Python?
+
+Simplicity and Readability: Python emphasizes readability and simplicity in code. Using ++ and -- can sometimes lead to less readable code, especially when used in complex expressions. Python prefers explicit and clear code.
+Explicit is Better Than Implicit: According to the Zen of Python (PEP 20), explicit code is favored over implicit code. Incrementing a variable with i += 1 is explicit and clear in its intention, while i++ can be less obvious to someone unfamiliar with the language.
+Avoiding Common Bugs: The ++ and -- operators can lead to subtle bugs, especially when used in complex expressions or mixed with other operations. By avoiding these operators, Python reduces the likelihood of such bugs.
+
+4.What is the difference between @static method and @class method?
+
+@staticmethod
+Definition: A static method is a method that belongs to the class rather than any particular instance of the class. It does not have access to the instance (self) or the class (cls) within the method body.
+Use Case: Static methods are used when you want to define a function that logically belongs to the class but does not need to access or modify the class state or instance state.
+Syntax: You use the @staticmethod decorator to define a static method.
+
+@classmethod
+Definition: A class method is a method that belongs to the class and has access to the class itself via the first parameter, which is conventionally named cls. It can modify class state that applies across all instances of the class.
+Use Case: Class methods are used when you need to work with the class itself, such as modifying class variables, creating factory methods, or providing alternative constructors.
+Syntax: You use the @classmethod decorator to define a class method.
+
+5. What is the difference between __new__() and __init__() ?
+
+Timing:
+
+__new__() is called before __init__().
+__init__() is called after the instance has been created.
+Responsibility:
+
+__new__() is responsible for creating and returning a new instance of the class.
+__init__() is responsible for initializing the instance once it has been created.
+Return Value:
+
+__new__() must return a new instance of the class.
+__init__() does not return anything.
+Usage Context:
+
+__new__() is less commonly overridden and is used mainly for creating instances of immutable types or implementing patterns like singletons.
+__init__() is commonly overridden to set up instance attributes and perform initialization.
+
+6.What is the syntax to use switch-case in Python. Given an example.
+  Python does not have a built-in switch-case statement like some other languages (e.g., C, C++, Java). 
+  However, you can achieve similar functionality using dictionaries, functions, or the match-case statement introduced in Python 3.10.
+  Using Dictionaries
+     A common way to emulate a switch-case in Python is by using a dictionary of functions or values.
+def case_one():
+return "This is case one."
+
+def case_two():
+    return "This is case two."
+
+def default_case():
+    return "This is the default case."
+
+switch_dict = {
+    1: case_one,
+    2: case_two,
+}
+
+def switch(case):
+    return switch_dict.get(case, default_case)()
+
+# Usage
+case_number = 1
+print(switch(case_number))  # Output: This is case one.
+
+case_number = 3
+print(switch(case_number))  # Output: This is the default case.
+
+Using Match -Case
+def switch(case):
+    match case:
+        case 1:
+            return "This is case one."
+        case 2:
+            return "This is case two."
+        case _:
+            return "This is the default case."
+
+# Usage
+case_number = 1
+print(switch(case_number))  # Output: This is case one.
+
+case_number = 3
+print(switch(case_number))  # Output: This is the default case.
+
+7.Can the key within a dictionary be a composite value like a list or tuple, or should it be an atomic value such as number or string?
+
+     In Python, the keys within a dictionary must be immutable and hashable objects. 
+     This means that while numbers, strings, and tuples (containing only immutable elements) can be used as dictionary keys, 
+     lists cannot be used because they are mutable.
+
+
+
+

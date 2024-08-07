@@ -53,20 +53,18 @@ if age >= 60 and gender.lower() == "m":
     print("Senior citizen discount applied, thank you for shopping")
 elif age >= 45 and gender.lower() == "f":
     print("Senior citizen discount applied, thank you for shopping")
-
-if age < 60 and gender.lower() == 'm':
+elif age < 60 and gender.lower() == 'm':
     print("Congrats 100 voucher fastrack reward is applied")
+    if(occupation =="1"):
+        print("500 coupon on books")
+    if (residency.lower() == "h" and occupation == "1"):
+     print("Congrats, a 250 voucher on groceries is applied.")
 elif age <45 and gender.lower() == "f":
     print("Congrats 100 voucher nyka reward is applied ")
-    
-    
-if (occupation == "1" ):
-    print("Congrats,500 coupon on books")
-else:
-    print("Working professionals have no rewards ")
-if (residency.lower() == "h"):
-    print("Congrats, a 250 voucher on groceries is applied.")
-
+    if(occupation =="1"):
+        print("500 coupon on books")
+    if (residency.lower() == "h" and occupation == "1"):
+        print("Congrats, a 250 voucher on groceries is applied.")
 if(parent_occupation.lower() == "y"):
     print("Pass to R-Day parade applied")
 

@@ -4,11 +4,17 @@ class Person:
         self.gender = gender
         self.residency = residency
         self.occupation = occupation
-    def senior(self):
+        self.senior_status = False 
+    
+    def is_senior(self):
         if (self.age > 60 and self.gender == 'm') or (self.age > 45 and self.gender == 'f'):
             print("Senior citizen discount of 15 percent applied")
+            self.senior_status = True
+        else:
+            self.senior_status = False
+        print(f'value of status {self.senior_status}')
     def discount_for_male_female(self):
-        if (self.age < 60 and self.gender == 'm') or (self.age < 45 and self.gender == 'f'):
+        if not(self.senior_status):
             if self.gender == 'm':
                 print("Congrats! A 100 voucher for Fastrack is applied.")
             else:
@@ -18,14 +24,17 @@ class Student(Person):
         super().__init__(age, gender, residency, occupation)
         self.residence_pin = residence_pin
         self.discount_pin = discount_pin
-        if self.residence_pin in self.discount_pin:
-            print("500 coupon on books is applied.")
-        if self.residency == 'h':
-            print("Congrats, a 250 voucher on groceries is applied.")
+        if self.senior_status == False:
+            if (self.residence_pin in self.discount_pin) :
+                print("500 coupon on books is applied.")
+            if self.residency == 'h':
+                print("Congrats, a 250 voucher on groceries is applied.")
 class Working(Person):
     def __init__(self, age, gender, residency, occupation, office_pin):
         super().__init__(age, gender, residency, occupation)
         self.office_pin = office_pin
+        if (self.office_pin in discount_pin) and self.senior_status:
+            print("Congrats,Discount on grocery is applied for seniors")
 
 gender_dict = {1: 'm', 2: 'f'}
 residency_dict = {1: 'h', 2: 'l'}
@@ -46,7 +55,7 @@ try:
     pin_code = int(input("Please enter your pin code: "))
 
     person = Person(age, gender_dict[gender_key], residency_dict[residency_key],occupation_dict[occupation_key])
-    person.senior()
+    person.is_senior()
     if occupation_key == 1:  # Student
         student = Student(age, gender_dict[gender_key], residency_dict[residency_key], occupation_dict[occupation_key], pin_code, discount_pin)
         student.discount_for_male_female()

@@ -6,7 +6,7 @@ file=open("source/new.txt",'x')
 file.close()
 os.mkdir("destination")
 try:
-    shutil.copy("source/new.txt", "destination/new.txt")
+    shutil.move("source/new.txt", "destination/new.txt")
 except FileNotFoundError:
     print("no file found in source")
 except FileExistsError:
